@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rudra Kher — Digital Portfolio</title>
+  <meta name="description" content="Portfolio of Rudra Kher — 23BCP272" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --accent:#ff7a18; 
+      --muted:#444;
+      --radius:16px;
+      --maxw:1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:#fff;
+      color:#111;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    /* --- NEW HERO ORANGE CURVE PATTERN --- */
+    body::before{
+      content:"";
+      position:fixed;
+      top:-200px;
+      left:-200px;
+      width:600px;
+      height:600px;
+      border:8px solid rgba(255,122,24,0.4);
+      border-radius:50%;
+      z-index:-1;
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      bottom:-250px;
+      right:-250px;
+      width:500px;
+      height:500px;
+      background:rgba(255,122,24,0.18);
+      border-radius:50%;
+      z-index:-1;
+    }
+
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px}
+    header{display:flex;gap:20px;align-items:center}
+
+    .photo{width:140px;height:140px;border-radius:20px;overflow:hidden;flex:0 0 140px;border:3px solid rgba(0,0,0,0.1);background:#eee;}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .hero{flex:1}
+    .name{font-size:36px;font-weight:800;letter-spacing:0.3px}
+    .meta{color:#444;margin-top:6px}
+    .tag{margin-top:10px;display:inline-block;background:rgba(255,122,24,0.1);padding:8px 12px;border-radius:999px;font-weight:600;color:#ff7a18}
+
+    nav.toc{margin-top:22px;background:#fafafa;padding:12px;border-radius:12px;display:flex;gap:10px;flex-wrap:wrap;border:1px solid #eee}
+    nav.toc a{color:#444;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:14px}
+    nav.toc a:hover{background:rgba(255,122,24,0.08);color:#000}
+
+    section.card{background:#fff;padding:20px;border-radius:var(--radius);border:1px solid #eee;box-shadow:0 4px 14px rgba(0,0,0,0.06)}
+    .card h2{margin:0 0 8px 0;font-size:22px;color:#111}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .skill-badge{display:inline-block;padding:6px 8px;border-radius:10px;margin:6px 6px 0 0;background:#fafafa;border:1px solid #eee;font-size:13px}
+
+    .project{border-radius:12px;padding:14px;background:#fafafa;border:1px solid #eee;display:grid;grid-template-columns:1fr 220px;gap:14px;align-items:center}
+    .project img{width:100%;height:140px;object-fit:cover;border-radius:10px}
+
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#ff9b45);color:#fff;font-weight:700;text-decoration:none}
+
+    footer{text-align:center;color:#555;margin-top:28px;font-size:14px}
+
+    @media(max-width:820px){.two-col{grid-template-columns:1fr}.project{grid-template-columns:1fr}}
+    /* ===== NEW HERO HEADER (LIKE SHARDUL STYLE) ===== */
+    .hero-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:60px 20px;
+      background:white;
+      border-radius:20px;
+      margin-bottom:40px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.06);
+    }
+
+    .hero-left{max-width:55%}
+
+    .hero-title{font-size:48px;font-weight:800;margin:0;color:#0d0d0d}
+    .hero-sub{font-size:22px;color:var(--accent);margin:10px 0 4px 0;font-weight:600}
+    .hero-meta{color:#444;margin:0 0 20px 0}
+
+    .hero-buttons{display:flex;gap:14px;margin-top:10px}
+
+    .hero-btn{
+      padding:12px 20px;
+      font-size:15px;
+      border-radius:10px;
+      text-decoration:none;
+      border:1px solid #d4d4d4;
+      background:white;
+      color:#222;
+      font-weight:600;
+      transition:0.2s;
+    }
+    .hero-btn:hover{background:#f3f4f6}
+    .hero-btn.primary{background:var(--accent);color:white;border:none}
+    .hero-btn.primary:hover{background:#e86a10}
+
+    .hero-photo-container{
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      overflow:hidden;
+      box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    }
+    .hero-photo{width:100%;height:100%;object-fit:cover}
+
+    /* OPTIONAL ILLUSTRATION LIKE 2ND IMAGE */
+    .illustration-box{text-align:center;margin-top:20px}
+    .illustration-img{width:100%;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero-header">
+      <div class="hero-left">
+        <h1 class="hero-title">Rudra Kher</h1>
+        <h2 class="hero-sub">B.Tech in Computer Engineering</h2>
+        <p class="hero-meta">Pandit Deendayal Energy University (PDEU)</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="hero-btn primary">View Projects</a>
+          <a href="#resume" class="hero-btn">View Resume</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-container">
+        <img src="https://via.placeholder.com/600x600.png?text=Your+Photo" alt="Rudra Photo" class="hero-photo">
+      </div>
+
+      <!-- OPTIONAL ILLUSTRATION LIKE 2ND IMAGE -->
+      <div class="illustration-box" style="display:none">
+        <!-- User can replace this with any illustration -->
+        <img src="https://via.placeholder.com/800x400.png?text=Upload+Your+Illustration" class="illustration-img">
+      </div>
+    </header>
+
+    <main>
+      <!-- COVER -->
+      <section id="cover" class="card">
+        <h2>Cover Page</h2>
+        <div class="small">Professional photograph, full name, academic program, institution, submission date, and a concise tagline encapsulating your academic philosophy.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <p><strong>Full name:</strong> Rudra Kher</p>
+        <p><strong>Academic program:</strong> B.Tech — Computer Engineering</p>
+        <p><strong>Institution:</strong> [Your Institution Name]</p>
+        <p><strong>Submission date:</strong> <span id="subdate2">November 16, 2025</span></p>
+        <p><strong>Tagline:</strong> Curiosity-led engineer who builds practical AI solutions to real problems.</p>
+      </section>
+
+      <!-- INTRO -->
+      <section id="intro" class="card">
+        <h2>Introduction & Learning Philosophy</h2>
+        <div class="small">Articulate your personal learning journey, core values, and philosophical underpinnings.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <p>I learn best by building — iterating quickly on ideas and learning from small failures. My core values are clarity, empathy, and practical impact. I believe education should be project-centered and interdisciplinary: combining software, hardware, and user-centred design produces the most meaningful solutions.</p>
+        <p><strong>Key pointers:</strong> lifelong curiosity, hands-on experimentation, collaborative problem solving, ethics-first design.</p>
+      </section>
+
+      <!-- RESUME -->
+      <section id="resume" class="card">
+        <h2>Resume / CV (3 marks)</h2>
+        <div class="small">Education, experience, skills, certifications, awards, volunteer work and hobbies.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px 0">Education</h3>
+            <p><strong>B.Tech — Computer Engineering</strong><br>[Your Institution Name] • 2nd Year (Roll: 23BCP272)</p>
+
+            <h3 style="margin-top:12px">Work Experience</h3>
+            <p><strong>Intern — [Company]</strong> • Role summary and dates</p>
+
+            <h3 style="margin-top:12px">Certifications</h3>
+            <p>e.g., Machine Learning Crash Course, OpenCV Essentials, Coursera — [Year]</p>
+
+            <h3 style="margin-top:12px">Awards & Honors</h3>
+            <p>Hackathon prizes, college recognitions, etc.</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px 0">Skills</h3>
+            <div>
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">JavaScript (HTML/CSS)</span>
+              <span class="skill-badge">OpenCV</span>
+              <span class="skill-badge">Machine Learning</span>
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">Figma (Design)</span>
+              <span class="skill-badge">Communication</span>
+              <span class="skill-badge">Leadership</span>
+            </div>
+
+            <h3 style="margin-top:12px">Co-curricular & Volunteering</h3>
+            <p>Club Fine Arts Head • Event organization • Volunteering at college events</p>
+
+            <h3 style="margin-top:12px">Hobbies</h3>
+            <p>Photography (beach), gaming, traveling.</p>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="card">
+        <h2>Interdisciplinary Projects & Research</h2>
+        <div class="small">Showcase 2–3 major projects. For each: overview, methodology, outcomes, visuals, and critical analysis.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+
+        <!-- Project 1 -->
+        <article class="project" style="margin-bottom:12px">
+          <div>
+            <h3 style="margin:0">DriveMind — AI-Powered Real-Time Driving Companion</h3>
+            <p class="meta">Team project (Compile Squad) — Role: [e.g., Vision & frontend] • Tools: OpenCV, YOLO, FastAPI, LLMs</p>
+            <p><strong>Overview:</strong> DriveMind is a low-cost AI co-driver that detects hazards, monitors driver drowsiness, and provides voice-based contextual alerts and AR highlights.</p>
+            <p><strong>Methodology:</strong> Object detection (YOLO) on dashcam, in-cabin fatigue detection using landmark analysis, LLM-based voice assistant via RAG + TTS pipeline.</p>
+            <p><strong>Outcomes & innovation:</strong> Sub-second hazard detection; >85% drowsiness detection accuracy in pilot tests. Focus on edge-compute optimization.</p>
+            <p><strong>Challenges & solutions:</strong> Real-time constraints → model pruning & frame skipping; poor-light conditions → data augmentation.</p>
+            <p><a class="btn" href="#" onclick="alert('Replace link with your DriveMind demo or PPT upload path')">View demo / PPT</a></p>
+          </div>
+          <div>
+            <img src="https://via.placeholder.com/400x240.png?text=DriveMind+Preview" alt="DriveMind preview">
+          </div>
+        </article>
+
+        <!-- Project 2 template -->
+        <article class="project" style="margin-bottom:12px">
+          <div>
+            <h3 style="margin:0">Project Title — [Add your second major project]</h3>
+            <p class="meta">Role • Tools • Year</p>
+            <p><strong>Overview:</strong> One-liner about the project's goal and interdisciplinary nature.</p>
+            <p><strong>Methodology:</strong> Short description of methods used and why.</p>
+            <p><strong>Outcomes:</strong> Results, visuals, publications (if any).</p>
+            <p><strong>Critical analysis:</strong> Challenges faced and how you overcame them.</p>
+            <p><a class="btn" href="#">View details</a></p>
+          </div>
+          <div>
+            <img src="https://via.placeholder.com/400x240.png?text=Project+Preview" alt="Project preview">
+          </div>
+        </article>
+
+        <!-- More projects — add as needed -->
+
+      </section>
+
+      <!-- Advanced Skills -->
+      <section id="skills" class="card">
+        <h2>Advanced Skill Development & Mastery</h2>
+        <div class="small">Highlight 3–4 advanced skills and artefacts.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <ol>
+          <li><strong>Computer Vision & Edge ML:</strong> Built optimized YOLO pipelines for sub-second detection on mid-range hardware. <em>Artefact:</em> code snippets or GitHub link.</li>
+          <li><strong>Full-stack voice assistants:</strong> LLM + RAG + TTS for contextual voice alerts. <em>Artefact:</em> architecture diagram and demo recordings.</li>
+          <li><strong>Design Thinking & Prototyping:</strong> Figma wireframes and interactive prototypes for user testing. <em>Artefact:</em> Figma links or exported images.</li>
+        </ol>
+      </section>
+
+      <!-- Leadership -->
+      <section id="leadership" class="card">
+        <h2>Collaborative & Leadership Experiences</h2>
+        <div class="small">Detail team roles, conflict resolution, achievements.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <p><strong>Fine Arts Head — College Club:</strong> Led design & event decoration team for multiple events, coordinated across Event Management and Technical teams. Learned cross-functional coordination and deadline management.</p>
+        <p><strong>Hackathon Team Lead:</strong> Organized task breakdown, coordinated PRD and demo, ensured version control, and delegated model optimisation tasks.</p>
+      </section>
+
+      <!-- Ethics -->
+      <section id="ethics" class="card">
+        <h2>Global Awareness & Ethical Considerations</h2>
+        <div class="small">How global issues or ethical dilemmas influenced your work.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <p>Discussed privacy vs safety trade-offs in DriveMind: in-cabin monitoring raises privacy concerns; we implemented on-device processing + ephemeral memory retention to reduce data leakage. Case studies and reflection included.</p>
+      </section>
+
+      <!-- Future -->
+      <section id="future" class="card">
+        <h2>Future Aspirations & Professional Development</h2>
+        <div class="small">Career goals and continuous learning strategies.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <p>Aim: work on embedded AI systems or ADAS for affordable vehicles; pursue internships in applied ML and edge computing; self-study plan: advanced ML courses, hardware interfacing, and ethics in AI.</p>
+      </section>
+
+      <!-- Conclusion -->
+      <section id="conclusion" class="card">
+        <h2>Conclusion & Self-Assessment (1 mark)</h2>
+        <div class="small">Summary, lessons learned, SWOT analysis and self-evaluation.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <p><strong>Summary:</strong> Built and iterated on real-world AI systems; learned to balance performance, cost and user safety.</p>
+        <p><strong>SWOT (short):</strong> Strengths — hands-on ML skills; Weaknesses — limited industry exposure; Opportunities — internships & hackathons; Threats — rapid tech changes.</p>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="card">
+        <h2>Testimonials</h2>
+        <div class="small">Recommendations from mentors, professors, or employers.</div>
+        <hr style="margin:12px 0;opacity:0.06">
+        <blockquote style="margin:0;padding-left:12px;border-left:3px solid rgba(255,255,255,0.04)">"Rudra consistently demonstrated technical curiosity and team leadership during the DriveMind project." — Prof. [Name], [Dept]</blockquote>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>Digital Portfolio — Rudra Kher • Roll No: 23BCP272</div>
+      <div style="margin-top:6px"><a class="btn" href="#cover" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:6px 10px">Print / Save as PDF</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // small helpers: allow quick edits from the page
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='e' && (e.ctrlKey||e.metaKey)){
+        alert('Tip: edit this file in your code editor. Replace placeholders like [Your Institution Name] and the photo URL.');
+      }
+    })
+  </script>
+</body>
+</html>
